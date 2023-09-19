@@ -1,0 +1,122 @@
+<?php
+
+
+namespace SyedNasharudin\MalakatPay\Models;
+
+
+use SyedNasharudin\MalakatPay\HttpClient\APIClient;
+use SyedNasharudin\MalakatPay\MalakatPayClient\MalakatPayClient;
+
+class Bill
+{
+    /**
+     * @var APIClient
+     */
+    protected $client;
+
+    protected $path = "collections";
+
+    protected $collectionId = null;
+
+    public function __construct(MalakatPayClient $request)
+    {
+        $this->client = $request->getClient();
+    }
+
+    /**
+     * @return null
+     */
+    public function getCollectionId()
+    {
+        if (!$this->collectionId) {
+            throw new \RuntimeException("Collection Code cant be empty");
+        }
+
+        return $this->collectionId;
+    }
+
+    /**
+     * @param string $collectionId
+     * @return RPBill
+     */
+    public function setCollectionId(string $collectionId)
+    {
+        $this->collectionId = $collectionId;
+        return $this;
+    }
+
+    /**
+     * @param string|null $collection_code
+     * @return BillDetail
+     */
+    public function makeBill(string $collection_code = null) : BillDetail
+    {
+        $this->collectionId = $collection_code ?? $this->collectionId;
+        return new BillDetail($this);
+    }
+
+    /**
+     * @param string $bill_code
+     * @param string $transaction_ref_no
+     * @param string $include
+     * @return \SyedNasharudin\MalakatPay\HttpClient\PayResponse
+     */
+    public function getTransactions(string $bill_code, string $transaction_ref_no, string $include = 'bill.collection')
+    {
+        return $this->client
+            ->urlSegment("{$this->path}/{$this->getCollectionId()}/bills/{$bill_code}/transactions/{$transaction_ref_no}", [
+                'include' => $include
+            ])
+            ->fetch();
+    }
+
+    /**
+     * @param string $bill_code
+     * @param string $include
+     * @return \SyedNasharudin\MalakatPay\HttpClient\PayResponse
+     */
+    public function getAllBillTransactions(string $bill_code, string $include = 'bill.collection')
+    {
+        return $this->client
+            ->urlSegment("{$this->path}/{$this->getCollectionId()}/bills/{$bill_code}/transactions", [
+                'include' => $include
+            ])
+            ->fetch();
+    }
+
+    /**
+     * @param string|null $bill_code
+     * @param string $include
+     * @return \SyedNasharudin\MalakatPay\HttpClient\PayResponse
+     */
+    public function getBill($bill_code, string $include = 'payments.transaction,collection.organization')
+    {
+        return $this->client
+            ->urlSegment("{$this->path}/{$this->getCollectionId()}/bills/{$bill_code}", [
+                'include' => $include
+            ])
+            ->fetch();
+    }
+
+    /**
+     * @param string $include
+     * @return \SyedNasharudin\MalakatPay\HttpClient\PayResponse
+     */
+    public function getAllCollectionBills(string $include = 'payments,collection.organization')
+    {
+        return $this->client
+            ->urlSegment("{$this->path}/{$this->getCollectionId()}/bills/", [
+                'include' => $include
+            ])
+            ->fetch();
+    }
+
+    /**
+     * @return APIClient
+     */
+    public function getClient(): APIClient
+    {
+        return $this->client;
+    }
+
+}

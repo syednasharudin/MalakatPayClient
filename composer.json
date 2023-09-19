@@ -1,0 +1,38 @@
+{
+    "name": "syednasharudin/malakatpay-client",
+    "description": "Malakatpay Gateway wrapper client",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "Malakatpay",
+        "Payment Gateway",
+        "Payment",
+        "Malakat",
+        "Online Banking",
+        "Malaysia",
+        "Banking",
+        "BMF"
+    ],
+    "authors": [
+        {
+            "name": "Syed Nasharudin",
+            "email": "s.nasharudin@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1.3",
+        "ext-json": "*",
+        "kitetail/zttp": "^0.6.0"
+    },
+    "require-dev": {
+        "vlucas/phpdotenv": "^4.1",
+        "phpunit/phpunit": "^8.5"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "autoload": {
+        "psr-4": {
+            "SyedNasharudin\\MalakatPay\\":"src/"
+        }
+    }
+}
