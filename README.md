@@ -145,7 +145,7 @@ MalakatPay::make()->isCheckSumValid($payload); //boolean
 ```
 
 ## Source
-[Malakat Pay Docs](https://documenter.getpostman.com/view/9723080/SWE57zKG?version=latest)
+[Malakat Pay Docs](https://stg-console-api.malakatpay.com/docs/2.0/collection)
 
 ## Todo
 - Other Malakat Pay features. Still under development
@@ -153,7 +153,4 @@ MalakatPay::make()->isCheckSumValid($payload); //boolean
 - Alter Readme
 
 ## License
-Licensed under the [MIT license](http://opensource.org/licenses/MIT)
-
-
-<a href="https://www.paypal.com/paypalme/mhi9388?locale.x=en_US"><img src="https://i.imgur.com/Y2gqr2j.png" height="40"></a>  
+Licensed under the [MIT license](http://opensource.org/licenses/MIT)  
