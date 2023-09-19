@@ -6,7 +6,7 @@ namespace SyedNasharudin\MalakatPay\Models;
 use SyedNasharudin\MalakatPay\Contracts\MalakatPayContracts;
 use SyedNasharudin\MalakatPay\HttpClient\APIClient;
 use SyedNasharudin\MalakatPay\HttpClient\PayResponse;
-use SyedNasharudin\MalakatPay\MalakatPayClient\MalakatPayClient;
+use SyedNasharudin\MalakatPay\MalakatPayClient;
 use SyedNasharudin\MalakatPay\Utils\MalakatPayUtils;
 
 class Product implements MalakatPayContracts

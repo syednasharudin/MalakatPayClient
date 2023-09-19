@@ -1,10 +1,10 @@
 <?php
 
 
-namespace MalakatPay;
+namespace SyedNasharudin\MalakatPay;
 
 use SyedNasharudin\MalakatPay\MalakatPayClient\Client;
-use SyedNasharudin\MalakatPay\MalakatPayClient\MalakatPayClient;
+use SyedNasharudin\MalakatPay\MalakatPayClient;
 
 class MalakatPay
 {

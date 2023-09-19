@@ -1,12 +1,10 @@
 <?php
 
-
-namespace SyedNasharudin\MalakatPay\MalakatPayClient;
-
+namespace SyedNasharudin\MalakatPay;
 
 use SyedNasharudin\MalakatPay\HttpClient\APIClient;
-use SyedNasharudin\MalakatPay\MalakatPay\Bill;
-use SyedNasharudin\MalakatPay\MalakatPay\Collection;
+use SyedNasharudin\MalakatPay\Models\Collection;
+use SyedNasharudin\MalakatPay\Models\Bill;
 use SyedNasharudin\MalakatPay\Models\Customer;
 use SyedNasharudin\MalakatPay\Models\DirectPay;
 use SyedNasharudin\MalakatPay\Models\Product;

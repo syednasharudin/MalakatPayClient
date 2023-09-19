@@ -4,7 +4,7 @@
 namespace SyedNasharudin\MalakatPay\Models;
 
 use SyedNasharudin\MalakatPay\HttpClient\APIClient;
-use SyedNasharudin\MalakatPay\MalakatPayClient\MalakatPayClient;
+use SyedNasharudin\MalakatPay\MalakatPayClient;
 
 class DirectPay
 {
